@@ -11,8 +11,6 @@ export class ResdidenceComponentComponent {
   listResidenceIsVisible: boolean[] =[false,false,false,false];
   listFavoris:Residence[] =[];
   listResidences:Residence[]=[
-
-
     {id:1,"name": "El fel","address":"Borj Cedria",
     status: "Disponible"},
     {id:2,
@@ -30,16 +28,16 @@ export class ResdidenceComponentComponent {
     ];
     location:string ="";
     id:number=0;
-  
+
 
 
     showLocation(resdidence:Residence ){
-      
+
       if(resdidence.address==="inconnu")
           alert("résidence est inconnu");
         else
         this.listResidenceIsVisible[resdidence.id]=true;
-  
+
     }
     isFavorite(resdidence:Residence):boolean{
       const index = this.listFavoris.findIndex(fav => fav.id === resdidence.id);
@@ -47,21 +45,21 @@ export class ResdidenceComponentComponent {
         return false
       else
       return true;
-  
+
     }
 
   addResidenceFavoris(residence: Residence): void {
     const index = this.listFavoris.findIndex(fav => fav.id === residence.id);
     if (this.isFavorite(residence)) {
-    
+
       this.listFavoris.splice(index, 1);
-    
+
     } else {
-    
+
       this.listFavoris.push(residence);
-    
+
     }
   }
-  
-   
+
+
 }

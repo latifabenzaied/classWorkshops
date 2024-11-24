@@ -1,40 +1,94 @@
+<!-- Search bar -->
+<!--<div class="mb-4">-->
+<!--  <div class="input-group">-->
+<!--    <input-->
+<!--      type="text"-->
+<!--      [(ngModel)]="searchTerm"-->
+<!--      placeholder="Rechercher une résidence..."-->
+<!--      class="form-control"-->
+<!--    />-->
+<!--    <button class="btn btn-outline-secondary" type="button" (click)="clearSearch()">-->
+<!--      Effacer-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
 
-<!-- <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une résidence..." class="search-input" /> -->
-    <table border="1">
-        <tr>
-            <th></th>
-          <th>Id</th>
-          <th>Name</th>
-          <th >Name</th>
-          <th>Status</th>
-          <th>Action </th>
-        </tr>
-        <tr *ngFor="let i of listResidences">
-            <button type="button" class="button"  (click)="addResidenceFavoris(i)">
-                <span *ngIf="isFavorite(i)"> <i class="fa-solid fa-heart"></i></span>
-                <span *ngIf="!isFavorite(i)"><i class="fa-solid fa-trash"></i></span>
-      
-            </button>
-          <td>{{i.id}}</td>
-          <td>{{i.name}}</td>
-          <td>{{i.name}}</td>
-          <td *ngIf="listResidenceIsVisible[i.id]">{{i.address}}</td>
-          <td *ngIf="i.status=='Disponible'"> <i class="fas fa-map-marked-alt"></i>{{i.status}}</td>
-          <td *ngIf="i.status=='Vendu'"> <i class="fa-solid fa-magnifying-glass"></i>{{i.status}}</td>
-          <td *ngIf="i.status=='En Construction'"> <i class="fa-solid fa-house"></i>{{i.status}}</td>
-          
-          <button type="button" class="button" (click)="showLocation(i)">
-            Show Location
-          </button>
-        </tr>
-      </table>
+<!-- Cards -->
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <div *ngFor="let i of listResidences " class="col">
+    <div class="card h-100">
+      <!-- Card Header with image or icon -->
+      <img src="src//assets//residence.jpg" class="card-img-top" alt="Image de la résidence">
 
-      <div>
-        {{location}}
+      <!-- Card Body -->
+      <div class="card-body">
+        <h5 class="card-title">{{ i.name }}</h5>
+        <p class="card-text">{{ i.address }}</p>
+
+        <!-- Status Badge -->
+        <div>
+          <span
+            *ngIf="i.status == 'Disponible'"
+            class="badge bg-success"
+          >
+            <i class="fas fa-map-marked-alt me-1"></i>{{ i.status }}
+          </span>
+          <span
+            *ngIf="i.status == 'Vendu'"
+            class="badge bg-danger"
+          >
+            <i class="fa-solid fa-magnifying-glass me-1"></i>{{ i.status }}
+          </span>
+          <span
+            *ngIf="i.status == 'En Construction'"
+            class="badge bg-warning text-dark"
+          >
+            <i class="fa-solid fa-house me-1"></i>{{ i.status }}
+          </span>
+        </div>
       </div>
-    
-      
-     
 
-    
-      
+      <!-- Card Footer with Actions -->
+      <div class="card-footer text-center">
+        <!-- Favorite Button -->
+        <button
+          type="button"
+          class="btn btn-outline-danger btn-sm mb-2"
+          (click)="addResidenceFavoris(i)"
+        >
+          <i
+            [ngClass]="{
+              'fa-solid fa-heart': isFavorite(i),
+              'fa-solid fa-trash': !isFavorite(i)
+            }"
+          ></i>
+        </button>
+
+        <!-- Location Button -->
+        <button
+          type="button"
+          class="btn btn-primary btn-sm mb-2"
+          (click)="showLocation(i)"
+        >
+          <i class="fa-solid fa-location-dot me-1"></i>Localiser
+        </button>
+
+        <!-- Details Button -->
+        <button
+          type="button"
+          class="btn btn-info btn-sm"
+          [routerLink]="['/details', i.id]"
+        >
+          <i class="fa-solid fa-info-circle me-1"></i>Détails
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Location output -->
+<div class="alert alert-light mt-4" *ngIf="location">
+  <strong>Localisation actuelle :</strong> {{ location }}
+</div>
+
+<router-outlet></router-outlet>

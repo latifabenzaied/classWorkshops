@@ -1,1 +1,63 @@
-<p>header works!</p>
+<!-- Header Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand" routerLink="/home">MyApp</a>
+
+    <!-- Toggle button for mobile view -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/home"
+            routerLinkActive="active"
+            aria-current="page"
+          >
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/residence"
+            routerLinkActive="active"
+          >
+            Residence
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/apartment"
+            routerLinkActive="active"
+          >
+            Apartment
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/contact"
+            routerLinkActive="active"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

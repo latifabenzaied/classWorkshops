@@ -1,1 +1,74 @@
-<p>residence-details works!</p>
+<div class="text-center mt-3">
+  <!-- Back Button -->
+  <button class="btn btn-secondary" (click)="backResidence()">Back</button>
+
+  <!-- Next Button -->
+  <button class="btn btn-primary ms-2" (click)="nextResidence()">Next</button>
+</div>
+<button
+  type="button"
+  class="btn btn-primary btn-sm me-1"
+  [routerLink]="['/addResidence',-1]"
+>Add Residence
+</button>
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+  <tr>
+    <th></th>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngIf="residenceDetails">
+    <td>
+      <button
+        type="button"
+        class="btn btn-outline-danger btn-sm"
+      >
+          <span>
+            <i class="fa-solid fa-heart"></i>
+          </span>
+        <span>
+            <i class="fa-solid fa-trash"></i>
+          </span>
+      </button>
+    </td>
+    <td>{{ residenceDetails.id }}</td>
+    <td>{{ residenceDetails.name }}</td>
+    <td>{{residenceDetails.address }}</td>
+    <td>
+        <span
+          *ngIf="residenceDetails.status == 'Disponible'"
+          class="badge bg-success"
+        >
+          <i class="fas fa-map-marked-alt"></i> {{ residenceDetails.status }}
+        </span>
+      <span
+        *ngIf="residenceDetails.status == 'Vendu'"
+        class="badge bg-danger"
+      >
+          <i class="fa-solid fa-magnifying-glass"></i> {{ residenceDetails.status }}
+        </span>
+      <span
+        *ngIf="residenceDetails.status == 'En Construction'"
+        class="badge bg-warning text-dark"
+      >
+          <i class="fa-solid fa-house"></i> {{residenceDetails.status }}
+        </span>
+    </td>
+    <td>
+
+      <button
+        type="button"
+        class="btn btn-primary btn-sm me-1"
+        [routerLink]="['/addResidence',residenceDetails.id]"
+      >Update Residence
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
