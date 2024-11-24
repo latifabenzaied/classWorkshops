@@ -1,0 +1,40 @@
+
+<!-- <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une résidence..." class="search-input" /> -->
+    <table border="1">
+        <tr>
+            <th></th>
+          <th>Id</th>
+          <th>Name</th>
+          <th >Name</th>
+          <th>Status</th>
+          <th>Action </th>
+        </tr>
+        <tr *ngFor="let i of listResidences">
+            <button type="button" class="button"  (click)="addResidenceFavoris(i)">
+                <span *ngIf="isFavorite(i)"> <i class="fa-solid fa-heart"></i></span>
+                <span *ngIf="!isFavorite(i)"><i class="fa-solid fa-trash"></i></span>
+      
+            </button>
+          <td>{{i.id}}</td>
+          <td>{{i.name}}</td>
+          <td>{{i.name}}</td>
+          <td *ngIf="listResidenceIsVisible[i.id]">{{i.address}}</td>
+          <td *ngIf="i.status=='Disponible'"> <i class="fas fa-map-marked-alt"></i>{{i.status}}</td>
+          <td *ngIf="i.status=='Vendu'"> <i class="fa-solid fa-magnifying-glass"></i>{{i.status}}</td>
+          <td *ngIf="i.status=='En Construction'"> <i class="fa-solid fa-house"></i>{{i.status}}</td>
+          
+          <button type="button" class="button" (click)="showLocation(i)">
+            Show Location
+          </button>
+        </tr>
+      </table>
+
+      <div>
+        {{location}}
+      </div>
+    
+      
+     
+
+    
+      

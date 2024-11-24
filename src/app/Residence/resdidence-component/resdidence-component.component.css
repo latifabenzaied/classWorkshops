@@ -1,0 +1,22 @@
+.button {
+    border: none;
+    color: burlywood;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+  }
+  .button:hover {
+    background-color: #0056b3; /* Bleu plus foncé */
+    transform: scale(1.05); /* Effet zoom léger */
+  }
+.button2 {
+ 
+    padding: 10px 20px; /* Espacement interne */
+    border: none; /* Supprimer la bordure */
+   
+  }
