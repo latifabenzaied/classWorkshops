@@ -11,20 +11,10 @@ export class ResidenceDetailsComponent implements OnInit {
   id: number | null = null; // Type number
   constructor(private route: ActivatedRoute) {}
   listResidences:Residence[]=[
-    {id:1,"name": "El fel","address":"Borj Cedria",
-      status: "Disponible"},
-    {id:2,
-      "name": "El yasmine",
-      "address":"Ezzahra", status:
-        "Disponible" },
-    {id:3,
-      "name": "El Arij",
-      "address":"Rades",
-      status:"Vendu"},
-    {id:4,
-      "name": "El Anber",
-      "address":"inconnu",
-      status: "En Construction"}
+    {id:1,"name": "El fel","address":"Borj Cedria", status: "Disponible"},
+    {id:2, "name": "El yasmine", "address":"Ezzahra", status: "Disponible" },
+    {id:3, "name": "El Arij", "address":"Rades", status:"Vendu"},
+    {id:4, "name": "El Anber", "address":"inconnu", status: "En Construction"}
   ];
   residenceDetails: Residence | undefined;
 
@@ -47,10 +37,7 @@ export class ResidenceDetailsComponent implements OnInit {
       }
       this.showResdenceDetails();
     }
-
   }
-
-
   backResidence() {
     if(this.id!=null){
       if (this.id > 1) {
@@ -61,6 +48,5 @@ export class ResidenceDetailsComponent implements OnInit {
       this.showResdenceDetails();
     }
     }
-
 
 }

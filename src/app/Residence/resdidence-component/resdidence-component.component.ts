@@ -6,30 +6,19 @@ import { Residence } from 'src/app/core/Models/Residence';
   templateUrl: './resdidence-component.component.html',
   styleUrls: ['./resdidence-component.component.css']
 })
+
+
+
 export class ResdidenceComponentComponent {
   searchTerm: string = '';
   listResidenceIsVisible: boolean[] =[false,false,false,false];
   listFavoris:Residence[] =[];
   listResidences:Residence[]=[
-    {id:1,"name": "El fel","address":"Borj Cedria",
-    status: "Disponible"},
-    {id:2,
-    "name": "El yasmine",
-    "address":"Ezzahra", status:
-    "Disponible" },
-    {id:3,
-    "name": "El Arij",
-    "address":"Rades",
-    status:"Vendu"},
-    {id:4,
-    "name": "El Anber",
-    "address":"inconnu",
-    status: "En Construction"}
+    {id:1,"name": "El fel","address":"Borj Cedria", status: "Disponible"},
+    {id:2, "name": "El yasmine", "address":"Ezzahra", status: "Disponible" },
+    {id:3, "name": "El Arij", "address":"Rades", status:"Vendu"},
+    {id:4, "name": "El Anber", "address":"inconnu", status: "En Construction"}
     ];
-    location:string ="";
-    id:number=0;
-
-
 
     showLocation(resdidence:Residence ){
 
@@ -51,13 +40,9 @@ export class ResdidenceComponentComponent {
   addResidenceFavoris(residence: Residence): void {
     const index = this.listFavoris.findIndex(fav => fav.id === residence.id);
     if (this.isFavorite(residence)) {
-
       this.listFavoris.splice(index, 1);
-
     } else {
-
       this.listFavoris.push(residence);
-
     }
   }
 

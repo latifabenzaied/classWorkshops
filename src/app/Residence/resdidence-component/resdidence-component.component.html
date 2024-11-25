@@ -18,12 +18,13 @@
   <div *ngFor="let i of listResidences " class="col">
     <div class="card h-100">
       <!-- Card Header with image or icon -->
-      <img src="src//assets//residence.jpg" class="card-img-top" alt="Image de la résidence">
+      <img src="assets/residence.jpg" class="card-img-top" alt="Image de la résidence">
 
       <!-- Card Body -->
       <div class="card-body">
         <h5 class="card-title">{{ i.name }}</h5>
-        <p class="card-text">{{ i.address }}</p>
+        <h5 class="card-title" *ngIf="listResidenceIsVisible[i.id]">{{ i.address }}</h5>
+
 
         <!-- Status Badge -->
         <div>
@@ -58,7 +59,7 @@
         >
           <i
             [ngClass]="{
-              'fa-solid fa-heart': isFavorite(i),
+              'fa-solid far fa-heart': isFavorite(i),
               'fa-solid fa-trash': !isFavorite(i)
             }"
           ></i>
@@ -70,13 +71,13 @@
           class="btn btn-primary btn-sm mb-2"
           (click)="showLocation(i)"
         >
-          <i class="fa-solid fa-location-dot me-1"></i>Localiser
+          <i class="fa-solid fa-location-dot me-1"></i>Show localisation
         </button>
 
         <!-- Details Button -->
         <button
           type="button"
-          class="btn btn-info btn-sm"
+          class="btn btn-info btn-sm mb-2"
           [routerLink]="['/details', i.id]"
         >
           <i class="fa-solid fa-info-circle me-1"></i>Détails
@@ -85,10 +86,4 @@
     </div>
   </div>
 </div>
-
-<!-- Location output -->
-<div class="alert alert-light mt-4" *ngIf="location">
-  <strong>Localisation actuelle :</strong> {{ location }}
-</div>
-
 <router-outlet></router-outlet>

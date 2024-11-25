@@ -9,7 +9,7 @@ import {ApartmentsByResidenceComponent} from "./Apartment/apartments-by-residenc
 
 const routes: Routes = [
 
-  {path: 'details/:id', component: ResidenceDetailsComponent,data: { id: 'id' }},
+  {path: 'details/:id', component: ResidenceDetailsComponent},
   {path: 'home', component: HomeComponent},
   {path: 'residence', component: ResdidenceComponentComponent},
   {path: 'addResidence/:id', component: AddResidenceComponent,data: { id: 'id' }},
