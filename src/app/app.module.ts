@@ -13,6 +13,7 @@ import { FooterComponent } from './Footer/footer/footer.component';
 import { HomeComponent } from './Home/home/home.component';
 import { HeaderComponent } from './Header/header/header.component';
 import { TestComponent } from './test/test.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,8 @@ import { TestComponent } from './test/test.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
 
   ],
   providers: [],

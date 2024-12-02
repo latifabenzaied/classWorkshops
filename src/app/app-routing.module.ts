@@ -6,6 +6,7 @@ import {ResdidenceComponentComponent} from "./Residence/resdidence-component/res
 import {AddResidenceComponent} from "./Residence/add-residence/add-residence.component";
 import {AppatmentComponent} from "./Apartment/appatment/appatment.component";
 import {ApartmentsByResidenceComponent} from "./Apartment/apartments-by-residence/apartments-by-residence.component";
+import {AddApartmentComponent} from "./Apartment/add-apartment/add-apartment.component";
 
 const routes: Routes = [
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'residence', component: ResdidenceComponentComponent},
   {path: 'addResidence/:id', component: AddResidenceComponent,data: { id: 'id' }},
   {path: 'apartment', component: AppatmentComponent},
+  {path: 'addapartment', component: AddApartmentComponent},
   {path: 'apartmentByResidence/:id', component: ApartmentsByResidenceComponent,data: { id: 'id' }},
   {path: '',redirectTo: 'home', pathMatch: 'full'}
 ];

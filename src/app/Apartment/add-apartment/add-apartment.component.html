@@ -1,1 +1,28 @@
-<p>add-apartment works!</p>
+<form [formGroup]="myForm" >
+  <label for="apartmentNumber"> Apartment Number</label>
+  <input  id="apartmentNumber" formControlName="apartmentNumber">
+
+  <label for="floorNumber"> Floor Number</label>
+  <input  id="floorNumber" formControlName="floorNumber">
+
+  <label for="surface"> Surface</label>
+  <input   type ="text" id="surface"formControlName="surface">
+
+  <label> Terrace</label>
+  <input   type ="radio" value="yes" formControlName="terrace" checked>yes
+  <input   type ="radio" value="no"  formControlName="terrace">no
+
+  <label for="surfaceTerrace"> Suraface Terrace</label>
+  <input  id="surfaceTerrace" formControlName="surfaceTerrace">
+
+  <label  > Category </label>
+  <input   type ="radio"  value="S+1" formControlName="category" CHECKED>S+1
+  <input   type ="radio"  value="S+2"  formControlName="category">S+2
+  <input   type ="radio"  value="S+3" formControlName="category">S+3
+
+  <label for="residence"> Residence </label>
+  <input  id="residence" formControlName="residence">
+  <button type="submit">Add</button>
+  <button type="submit">Reset</button>
+
+</form>
